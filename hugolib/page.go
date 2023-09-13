@@ -132,6 +132,11 @@ type pageState struct {
 	*pageCommon
 }
 
+func (p *pageState) NameAlias() []string {
+	// [TODO] currently no page alias
+	return nil
+}
+
 func (p *pageState) reusePageOutputContent() bool {
 	return p.pageOutputTemplateVariationsState.Load() == 1
 }

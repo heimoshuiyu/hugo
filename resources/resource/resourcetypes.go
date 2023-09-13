@@ -74,6 +74,7 @@ type ErrProvider interface {
 
 // Resource represents a linkable resource, i.e. a content page, image etc.
 type Resource interface {
+	ResourceNameAliasProvider
 	ResourceTypeProvider
 	MediaTypeProvider
 	ResourceLinksProvider
@@ -81,6 +82,10 @@ type Resource interface {
 	ResourceParamsProvider
 	ResourceDataProvider
 	ErrProvider
+}
+
+type ResourceNameAliasProvider interface {
+	NameAlias() []string
 }
 
 type ResourceTypeProvider interface {

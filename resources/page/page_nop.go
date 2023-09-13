@@ -63,6 +63,10 @@ func (p *nopPage) Err() resource.ResourceError {
 	return nil
 }
 
+func (p *nopPage) NameAlias() []string {
+	return nil
+}
+
 func (p *nopPage) Aliases() []string {
 	return nil
 }

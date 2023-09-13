@@ -80,6 +80,10 @@ func (e *errorResource) Name() string {
 	panic(e.ResourceError)
 }
 
+func (e *errorResource) NameAlias() []string {
+	panic(e.ResourceError)
+}
+
 func (e *errorResource) Title() string {
 	panic(e.ResourceError)
 }

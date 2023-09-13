@@ -230,10 +230,11 @@ type genericResource struct {
 
 	spec *Spec
 
-	title  string
-	name   string
-	params map[string]any
-	data   map[string]any
+	title     string
+	name      string
+	nameAlias []string
+	params    map[string]any
+	data      map[string]any
 
 	resourceType string
 	mediaType    media.Type
@@ -291,6 +292,10 @@ func (l *genericResource) setMediaType(mediaType media.Type) {
 
 func (l *genericResource) Name() string {
 	return l.name
+}
+
+func (l *genericResource) NameAlias() []string {
+	return l.nameAlias
 }
 
 func (l *genericResource) Params() maps.Params {
@@ -398,6 +403,10 @@ func (l *genericResource) initContent() error {
 
 func (l *genericResource) setName(name string) {
 	l.name = name
+}
+
+func (l *genericResource) addNameAlias(s string) {
+	l.nameAlias = append(l.nameAlias, s)
 }
 
 func (l *genericResource) getResourcePaths() *resourcePathDescriptor {

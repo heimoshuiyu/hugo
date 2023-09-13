@@ -238,6 +238,11 @@ func (r *resourceAdapter) Name() string {
 	return r.target.Name()
 }
 
+func (r *resourceAdapter) NameAlias() []string {
+	r.init(false, false)
+	return r.target.NameAlias()
+}
+
 func (r *resourceAdapter) Params() maps.Params {
 	r.init(false, false)
 	return r.target.Params()

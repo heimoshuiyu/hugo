@@ -63,6 +63,11 @@ func (r Resources) Get(name any) Resource {
 		if strings.EqualFold(namestr, resource.Name()) {
 			return resource
 		}
+		for _, alias := range resource.NameAlias() {
+			if strings.EqualFold(namestr, alias) {
+				return resource
+			}
+		}
 	}
 	return nil
 }

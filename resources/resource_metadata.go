@@ -41,6 +41,7 @@ type metaAssignerProvider interface {
 type metaAssigner interface {
 	setTitle(title string)
 	setName(name string)
+	addNameAlias(name string)
 	setMediaType(mediaType media.Type)
 	updateParams(params map[string]any)
 }
@@ -103,7 +104,7 @@ func AssignMetadata(metadata []map[string]any, resources ...resource.Resource) e
 							counters[counterKey] = nameCounter
 						}
 
-						ma.setName(replaceResourcePlaceholders(name, nameCounter))
+						ma.addNameAlias(name)
 						nameSet = true
 					}
 				}
